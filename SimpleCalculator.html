@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+  
+
+   
+</head>
+<body>
+    <h1>LET'S CALCULATE!</h1>
+    <script>
+        const num1=parseFloat(prompt('Kindly enter your 1st number'));
+        const num2=parseFloat(prompt('Kindly enter your 2nd number'));
+        const op=prompt('Kindly enter your operator');
+        let result;
+
+        if(op =='+'){
+       result=num1+num2
+        }
+        else if(op == '*'){
+            result=num1*num2;
+        
+        }
+        else if(op =='/'){
+            result=num1/num2;
+        }
+        else {
+            result=num1-num2;
+        }
+         alert('The answer is: '+result);
+    </script>
+</body>
+</html>
