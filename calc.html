@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calcTest {
+            margin-bottom: 30px;
+            padding-left: 50px;
+            font-size: 24px;
+        }
+        button {
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calcTest">
+        <p id="userInput">0</p>
+    </div>
+    <div class="calc keys">
+        <p>
+            <button class="numbers">1</button>
+            <button class="numbers">2</button>
+            <button class="numbers">3</button>
+            <button class="operations">+</button>
+        </p>
+        <p>
+            <button class="numbers">4</button>
+            <button class="numbers">5</button>
+            <button class="numbers">6</button>
+            <button class="operations">-</button>
+        </p>
+        <p>
+            <button class="numbers">7</button>
+            <button class="numbers">8</button>
+            <button class="numbers">9</button>
+            <button class="operations">*</button>
+        </p>
+        <p>
+            <button class="numbers">0</button>
+            <button class="operations">.</button>
+            <button class="operations">/</button>
+            <button class="operations">=</button>
+        </p>
+        <button onclick="clearInput()">Clear</button>
+    </div>
+
+    <script>
+        const inputValue = document.getElementById("userInput");
+
+        // Add event listeners to number buttons
+        document.querySelectorAll(".numbers").forEach(function(item) {
+            item.addEventListener("click", function(e) {
+                if (inputValue.innerText === "NaN" || inputValue.innerText === "0") {
+                    inputValue.innerText = "";
+                }
+                inputValue.innerText += e.target.innerHTML;
+            });
+        });
+
+        // Add event listeners to operation buttons
+        document.querySelectorAll(".operations").forEach(function(item) {
+            item.addEventListener("click", function(e) {
+                const lastValue = inputValue.innerText.charAt(inputValue.innerText.length - 1);
+
+                if (e.target.innerHTML === '=') {
+                    try {
+                        inputValue.innerText = eval(inputValue.innerText);
+                    } catch {
+                        inputValue.innerText = "Error";
+                    }
+                } else if (e.target.innerHTML === 'Clear') {
+                    clearInput();
+                } else {
+                    // Prevent adding an operator if the last character is also an operator
+                    if (['+', '-', '*', '/'].includes(lastValue)) {
+                        inputValue.innerText = inputValue.innerText.slice(0, -1); // Remove last operator
+                    }
+                    inputValue.innerText += e.target.innerHTML;
+                }
+            });
+        });
+
+        function clearInput() {
+            inputValue.innerText = '0';
+        }
+    </script>
+</body>
+</html>
