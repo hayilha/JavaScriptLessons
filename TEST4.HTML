@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Role Paper Scissors</title>
 </head>
 <body>
-    <script>
-        let number=math.random();
-        if (number<0.5){
-            console.log('heads');
-        }
-        else{
-            console.log('tails');
-        }    </script>
+<button onclick="const randomN=Math.random()
+let computerMove=''
+if(randomN>=0 &&randomN<1/3){
+    let computerMove='rock';
+}
+else if(randomN>1/3 && randomN<2/3){
+    let computerMove='scissors';
+}
+else if(randomN>2/3 && randomN<1){
+    let computerMove='Paper';
+}
+console.log(computerMove)"
+>Rock</button>
+<button>Paper</button>
+<button>Scissors</button>
 </body>
 </html>
