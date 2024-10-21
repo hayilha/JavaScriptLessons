@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice1.</title>
+</head>
+<body>
+    <script>
+   function convertToFarenheit(celcuis){
+let farenheit=(celcuis*9/5)+32
+console.log(farenheit)
+   }
+convertToFarenheit(25);
+
+function convertToCelsuis(farenheit){
+let Farenheit=(farenheit-32)*5/9
+console.log(Farenheit)
+   }
+   convertToCelsuis(86);
+
+  function ConTemp(degrees,unit){
+if (unit==='c'){
+const result=convertToFarenheit(degrees)
+return `${result}F`
+}
+else if(unit==='F')
+ {const result=convertCelsius(degrees)
+    return `${result}C`
+   }
+}
+ConTemp(25,'c')
+    </script>
+</body>
+</html>

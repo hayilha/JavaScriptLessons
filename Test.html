@@ -6,13 +6,45 @@
     </head>
     <body>
 <button onclick="console.log('Cart Quantity: '+variable1);">Show Quantity</button>
-<button onclick="variable1++;console.log('Cart Quantity: '+variable1)">Add To Cart</button>
-<button onclick="variable1+=2;console.log('Cart Quantity: '+variable1)">+2</button>
-<button onclick="variable1+=3;console.log('Cart Quantity: '+variable1)">+3</button>
+<button onclick=" 
+updateCart(1)
+">Add To Cart</button>
+<button 
+onclick=" 
+updateCart(2)
+"
+>+2</button>
+<button 
+onclick=" 
+updateCart(3)
+"
+>+3</button>
 <button onclick="variable1=0;console.log('Cart Quantity was Reset')">Reset Cart</button>
+<button
+onclick=" updateCart(-1)"
+>Remove from cart</button>
+<button
+onclick="updateCart(-2)"
+>-2</button>
+<button
+onclick=updateCart(-3)
+>-3</button>
 
 <script>
     let variable1=0
+    function updateCart(num){
+        if (variable1+num>10){ 
+    console.log('cart is full')
+    return;
+}
+
+if(variable1+num<0){ 
+    console.log('Not enough in cart')
+    return;
+}
+variable1+=num
+console.log(variable1)
+    }
 </script>
     </body>
 

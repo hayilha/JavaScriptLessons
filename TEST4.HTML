@@ -3,23 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role Paper Scissors</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-<button onclick="const randomN=Math.random()
+<button onclick="PlayerMove('rock')
+    "
+>Rock</button>
+<button 
+onclick="PlayerMove('Paper')
+">Paper</button>
+<button
+onclick="PlayerMove('scissors')
+"
+>Scissors</button>
+
+
+<button onclick="
+score.wins=0
+score.losses=0
+score.ties=0">Reset Button</button>
+
+<script>
+
+    const score={
+        wins:0,
+        losses:0,
+        ties:0
+    }
+    document.querySelector('.score').innerHTML
+    
+    function Computer(){
+        const randomN=Math.random()
 let computerMove=''
 if(randomN>=0 &&randomN<1/3){
-    let computerMove='rock';
+    computerMove='rock ';
 }
 else if(randomN>1/3 && randomN<2/3){
-    let computerMove='scissors';
+     computerMove='scissors ';
 }
-else if(randomN>2/3 && randomN<1){
-    let computerMove='Paper';
+else {
+     computerMove='Paper ';
 }
-console.log(computerMove)"
->Rock</button>
-<button>Paper</button>
-<button>Scissors</button>
-</body>
+console.log(computerMove) 
+return computerMove;
+    }
+
+function  PlayerMove(play){
+    const computerMove=Computer()
+let result=''
+if(play==='scissors'){
+    if (computerMove === 'rock '){
+    result='You lose'
+}
+else if(computerMove==='scissors '){
+result='Tie'}
+else if(computerMove==='Paper'){
+    result='You win'
+}
+}
+else if(play==='Paper'){
+    if (computerMove === 'rock '){
+    result='You win'
+}
+else if(computerMove==='scissors '){
+result='You lose'}
+else if(computerMove==='Paper'){
+    result='Tie'
+}
+}
+else if(play==='rock'){
+    if (computerMove === 'rock '){
+    result='Tie'
+}
+else if(computerMove==='scissors '){
+result='You win'}
+else if(computerMove==='Paper'){
+    result='You lose'
+}
+}
+if(
+ result==='You win'
+){ score.wins+=1}
+else if(result==='You lose'){
+    score.losses+=1
+}
+else if(result==='Tie')
+{score.ties+=1}
+alert(`You picked ${play}.Computer picked ${computerMove}. ${result}
+Wins=${score.wins} Losses=${score.losses} Ties=${score.ties}`);
+}
+</script>
+</body> 
 </html>
