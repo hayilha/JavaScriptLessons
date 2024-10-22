@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <p >Amazon Calc</p>
+    <p>Orders under 40 cedis REQUIRE 10 CEDIS SHIPPING</p>
+    <p>Orders OVER 40 cedis HAVE FREE SHIPPING</p>
+    <input type="number" class="apples"placeholder="cost of order">
+    <button onclick="
+place()
+    ">Calculate</button>
+    <script>
+        function place(){
+const input=document.querySelector('.apples')
+let cost=parseFloat(input.value)
+
+if (cost<40){
+   cost=cost+10
+document.querySelector('.resu').innerHTML=`Total cost ${cost} cedis`
+}
+else{
+    document.querySelector('.resu').innerHTML=`SHIPPING IS FREE: ${ cost} cedis`  
+}
+        }
+    </script>
+ <p class="resu"></p>
+</body>
+</html>

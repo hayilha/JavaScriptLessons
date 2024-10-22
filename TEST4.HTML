@@ -16,22 +16,37 @@ onclick="PlayerMove('Paper')
 onclick="PlayerMove('scissors')
 "
 >Scissors</button>
+<p class="results"></p>
+<p class="label">
+
+</p>
 
 
 <button onclick="
 score.wins=0
 score.losses=0
-score.ties=0">Reset Button</button>
+score.ties=0
+localStorage.removeItem('score')
+UpdateScore()
+result=''
+"
+>Reset Button</button>
 
 <script>
 
-    const score={
-        wins:0,
-        losses:0,
-        ties:0
+    let score= JSON.parse(localStorage.getItem('score'));
+    if(
+        score===null    ){
+        score={
+            wins:0,
+            losses:0,
+            ties:0
+        }
+  
     }
-    document.querySelector('.score').innerHTML
-    
+    UpdateScore()
+    document.querySelector('.results').innerHTML=result
+
     function Computer(){
         const randomN=Math.random()
 let computerMove=''
@@ -89,8 +104,15 @@ else if(result==='You lose'){
 }
 else if(result==='Tie')
 {score.ties+=1}
+localStorage.setItem('score',JSON.stringify(score))
+UpdateScore()
+
 alert(`You picked ${play}.Computer picked ${computerMove}. ${result}
 Wins=${score.wins} Losses=${score.losses} Ties=${score.ties}`);
+document.querySelector('.results').innerHTML=result
+}
+function UpdateScore(){
+    document.querySelector('.label').innerHTML=`Wins=${score.wins} Losses=${score.losses} Ties=${score.ties}`
 }
 </script>
 </body> 
