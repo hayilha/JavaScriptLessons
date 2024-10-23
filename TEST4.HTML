@@ -4,25 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <style>
+        body{
+            background-color:black;
+            color:white;
+            font-family:Arial;
+        }
+        .title{
+            font-size: 30px;
+            font-weight:bold;
+        }
+        .ple{
+            height:50px;
+        }
+        .oran{
+            background-color: transparent;
+            border:2px solid white;
+            width:120px;
+            height:120px;
+            border-radius:60px;
+            margin-right:10px
+        }
+        .app{
+            font-size:20px;
+            font-weight:bold;
+        }
+        .on{
+            border:none;
+            background-color: white;
+            font-size: 15px;
+            padding:10px 13px;
+           cursor:pointer
+        }
+    </style>
 </head>
 <body>
-<button onclick="PlayerMove('rock')
-    "
->Rock</button>
-<button 
+    <p class="title">ROCK PAPER SCISSORS</p>
+<button class="oran"onclick="PlayerMove('rock')
+    "><img src="images/rock.jpeg" class="ple"></button>
+
+<button class="oran"
 onclick="PlayerMove('Paper')
-">Paper</button>
-<button
+"><img src="images/paper.jpeg" class="ple"></button>
+<button class="oran"
 onclick="PlayerMove('scissors')
 "
->Scissors</button>
-<p class="results"></p>
-<p class="label">
+><img src="images/scissors.jpeg" class="ple"></button>
+<p class="results app "></p>
+<p class="label" ><img src="images/rock.jpeg "class="move">
+    <img src="images/scissors.jpeg"class="move">
 
 </p>
 
 
-<button onclick="
+<button class="on"onclick="
 score.wins=0
 score.losses=0
 score.ties=0

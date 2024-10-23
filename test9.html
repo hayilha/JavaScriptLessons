@@ -4,17 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>DOM</title>
+    <style>
+body{
+    font-family:Arial;
+}
+
+.beb{
+    border:none;
+    background-color:black;
+    color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    border-radius: 40px;
+    font-weight:bold;
+    cursor: pointer;
+}
+.is{
+    background-color: rgb(240,240,240);
+color:black
+}
+
+    </style>
 </head>
 <body>
     <div> 
     <p>Youtube Subscribe Button</p>
-    <button id='button' onclick="
+    <button id='button' class="beb" onclick="
      ; const apples=document.getElementById('button')
     if (apples.innerText==='Subscribe'){
 apples.innerHTML='Subscribed'
+apples.classList.add('is')
     }
     else{
-        buttonElement.innerHTML='Subscribe'
+        apples.innerHTML='Subscribe'
+        apples.classList.remove('is')
     }
     ">Subscribe</button>
    </div>

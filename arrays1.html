@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+     const nums=[10,20,30]
+     nums[2]=99
+     console.log(nums)
+
+     function get(apples){
+     const dance=apples[apples.length-1]
+     console.log(dance)}
+
+
+    get([0,3,4]);
+ function make(array){
+        let bake=array[0]
+        let bread=array[array.length-1]
+        array[array.length-1]=bake 
+       array[0] =bread
+       return array
+    }
+    console.log(make([4,7,45,23,567,0]))
+
+    for(let i=0;i<=10;i+=2){
+console.log(i)
+    }
+    for(let i=5;i>0;i--){
+        console.log(i)
+    }
+
+    let i=6
+    while(i>0){
+       
+        console.log(i)
+        i--
+    }
+ 
+    function plot(game){
+        const neww=[]
+        for(let i=0;i<game.length;i++){
+          const gamee=  game[i]+1
+neww.push(gamee)
+        }
+        return neww
+       
+    }
+    console.log(plot([1,2,3,8]))
+
+   
+    function minMax(nums){
+        const amount={
+        max:nums[0],
+        min:nums[0]
+    }
+for(let i=1;i<nums.length;i++){
+
+    if(nums[i]<amount.min){
+        amount.min=nums[i]
+       
+    }
+     if(nums[i]>amount.max){
+        amount.max=nums[i]
+        
+    }
+   
+    }
+    return amount;
+}
+console.log(minMax([1,3,4,5,6]));
+
+function tyre(tre){
+const total={
+    ma:'',
+    mi:''
+}
+for(let i=0;i<tre.length;i++){
+    let abs=tre[i]
+    let abc=tre[i+1]
+    if (abc<abs){
+        total.mi=abc
+    }
+    if(abc>abs){
+        total.ma=abc
+    }
+}
+return total;
+}
+console.log(tyre([1,3,4,5,6]));
+   </script>
+</body>
+</html>
