@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="apples" onclick="">Clear</button>
+   <script>
+/* same as onclick.allows you to add multiple listeners to one event*/
+const button = document.querySelector('.apples');
+
+// Function to execute on click
+const handleClick = () => {
+    console.log('click');
+};
+
+// Add event listener for the click event
+button.addEventListener('click', handleClick);
+
+  /* variable.removeEventListener('event',function with a variable name)
+  butte.removeEventListener('click',letu)
+   /* anonymous functions */
+    const apples= function(){
+        console.log('helloo')
+    }
+    console.log(apples)
+    apples();
+/*functions within objects*/
+    const obj={
+        name:'Ahliyah',
+        fun: function greeting(){
+            console.log('days')
+        }
+    }
+    obj.fun()
+    /* calling a function within another*/
+function run(play){
+    play();
+}
+run(function dance(){
+    console.log('hello1')
+})
+/*using setTimeout().Its a function that is run in the future.Its in milliseconds so 3000=3s. Asynchronous code=where the computer doesnt wait for one function to finish before executing the next one.Normally we use synchronous code*/
+setTimeout(function(){
+console.log('timeout')
+},3000)
+console.log('nextline')
+/*setInterval is another inbuilt function it keeps running a function until a set period of time*/
+setInterval(
+    function(){
+console.log('dancing')
+},3000  
+);
+/* .foreach(value,index)=looping through an array.easiest way to loop through a array instead of using for or while*/
+[
+    'making dinner',
+    'dancing',
+    'watch youtube'
+].forEach(function(value){
+console.log(value)
+})
+/*same as continue which is used to exit a loop early*/
+[
+    'making dinner',
+    'dancing',
+    'watch youtube'
+].forEach(function(value){
+if(value==='making dinner'){
+    return;
+}
+})
+/*shorter way to write functions=arrow function.easier to read*/
+const arrowFunc=()=>{
+    console.log('hello')
+}
+arrowFunc()
+const oneParam=param=>{
+    console.log(param+1)
+}
+oneParam(2)
+
+const oneLine=()=>2+3
+console.log(oneLine())
+[
+    'making dinner',
+    'dancing',
+    'watch youtube'
+].forEach((value)=>{
+if(value==='making dinner'){
+    return;
+}
+})
+const object2={
+    method: () =>{
+
+    },
+    /*shorthand method syntax*/
+    method(){
+
+    }
+}
+
+</script> 
+</body>
+</html>

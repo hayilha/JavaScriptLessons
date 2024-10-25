@@ -2,7 +2,7 @@
     display: flex;
     justify-content: flex-end; /* Aligns all child elements to the right */
     overflow: hidden;
-    color: blue;
+    ;
 }
 
 .header__logo{
