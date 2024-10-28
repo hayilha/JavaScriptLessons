@@ -24,6 +24,7 @@
             height: 120px;
             border-radius: 60px;
             margin-right: 10px;
+            cursor:pointer;
         }
         .app {
             font-size: 20px;
@@ -46,34 +47,36 @@
         .label {
             margin-top: 100px;
         }
+        .yes ,.no{
+            width:50px;
+            height:30px;
+            cursor:pointer;
+        }
     </style>
 </head>
 <body>
     <p class="title">ROCK PAPER SCISSORS</p>
-    <button class="oran" onclick="PlayerMove('rock')">
+    <button class="oran js-rock" >
         <img src="./images/rock.jpeg" class="ple">
     </button>
-    <button class="oran" onclick="PlayerMove('paper')">
+    <button class="oran js-paper" >
         <img src="./images/paper.jpeg" class="ple">
     </button>
-    <button class="oran" onclick="PlayerMove('scissors')">
+    <button class="oran js-scissors" >
         <img src="./images/scissors.jpeg" class="ple">
     </button>
 
     <p class="results app"></p>
-    <p class="ple">You <img src="./images/rock.jpeg" class="oran"> <img src="./images/paper.jpeg" class="oran"> Computer</p>
+    <p id="player">You <img src="./images/rock.jpeg" class="oran"><img src="./images/paper.jpeg" class="oran"> Computer</p>
+   
+   
+   
     <p class="label"></p>
 
-    <button class="on" onclick="
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        UpdateScore();
-        document.querySelector('.results').innerHTML = '';
-    ">Reset Button</button>
+    <button class="on pray">Reset Button</button>
     
     <button class="auto-play" id="auto" onclick="autoPlay()">Autoplay</button>
+    <p class="pop"></p>
 
     <script>
         let score = JSON.parse(localStorage.getItem('score'));
@@ -81,6 +84,17 @@
             score = { wins: 0, losses: 0, ties: 0 };
         }
         UpdateScore();
+
+
+        function reset(){
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        UpdateScore();
+        document.querySelector('.results').innerHTML = '';
+        }
+       
 
         function Computer() {
             const randomN = Math.random();
@@ -108,10 +122,12 @@
             localStorage.setItem('score', JSON.stringify(score));
             UpdateScore();
 
-            /*alert(`You picked ${play}. Computer picked ${computerMove}. ${result} Wins=${score.wins} Losses=${score.losses} Ties=${score.ties}`);*/
+           /* alert(`You picked ${play}. Computer picked ${computerMove}. ${result} Wins=${score.wins} Losses=${score.losses} Ties=${score.ties}`);*/
             document.querySelector('.results').innerHTML = result;
             console.log(play,computerMove)
-            document.querySelector('.ple').innerHTML = `You <img src="./images/${play}.jpeg" class="oran"> <img src="./images/${computerMove}.jpeg" class="oran"> Computer`;
+            document.getElementById('player').innerHTML = `You <img src="./images/${play}.jpeg" class="oran"> 
+        <img src="./images/${computerMove}.jpeg" class="oran"> Computer`
+
         }
 
         function UpdateScore() {
@@ -126,7 +142,7 @@ function autoPlay() {
         intervalId = setInterval(function() {
             const playerMovee = Computer();
             PlayerMove(playerMovee);
-        }, 1000);
+        }, 3000);
         autoPlayInterval = true; 
         autoButton.textContent = 'Stop Autoplay'; // Change button text
         autoButton.style.backgroundColor = 'red'; // Optional: change color
@@ -138,9 +154,58 @@ function autoPlay() {
     }
 }
 
+document.querySelector('.js-rock').addEventListener('click',()=>{
+    PlayerMove('rock');
+});
+document.querySelector('.js-paper').addEventListener('click',()=>{
+    PlayerMove('paper');
+});
+document.querySelector('.js-scissors').addEventListener('click',()=>{
+    PlayerMove('scissors');
+});
+
+function hideValid(){
+     document.querySelector('.pop').innerHTML =""
+}
 
 
-        
+document.querySelector('.pray').addEventListener('click',()=>{
+    document.querySelector('.pop').innerHTML = `
+    <div>Are you sure you want to reset the score?
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+    </div>`;
+    document.querySelector('.yes').addEventListener('click',()=>{
+    reset()
+    hideValid()
+})
+document.querySelector('.no').addEventListener('click',()=>{
+    hideValid()
+})
+})
+
+    document.body.addEventListener('keydown',(event)=>{
+        console.log(event)
+        if (event.key==='r'){
+            
+            PlayerMove('rock')
+        }
+        else if(event.key==='s'){
+            PlayerMove('scissors')
+        }
+        else if(event.key==='p'){
+            PlayerMove('paper')
+
+        }
+        else if(event.key==='a'){
+            autoPlay()
+        }
+        else if(event.key=== 'Backspace'){
+            reset()
+
+        }
+    })   
+
     
     </script>
 </body>

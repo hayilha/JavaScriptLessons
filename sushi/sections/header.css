@@ -2,7 +2,6 @@
     display: flex;
     justify-content: flex-end; /* Aligns all child elements to the right */
     overflow: hidden;
-    ;
 }
 
 .header__logo{
@@ -14,8 +13,13 @@
 .header__logo-overlay{
     position:absolute;
     inset:0;
-    width:100%
+    width:100%;
 
+background-color:var(--primary-color);
+z-index: 1;
+}
+.header__logo h4{
+    padding-left:30px;
+    color:white;
 
 }
-

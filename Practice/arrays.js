@@ -32,7 +32,7 @@ function fixing() {
     todo.forEach(function (currentTodo, index) {
         const namie = currentTodo.name;
         const datee = currentTodo.date;
-        let html = `<div class="todo-item">${namie} ${datee} <button class="delete-button" onclick="todo.splice(${index}, 1); fixing();">Delete</button></div>`;
+        let html = `<div class="todo-item">${namie} ${datee} <button class="deleteButton" onclick="todo.splice(${index}, 1); fixing();">Delete</button></div>`;
         
         todolist += html;
     });
